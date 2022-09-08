@@ -1,0 +1,39 @@
+
+<h2>Détails du "{{tournament.name}}"</h2>
+
+  <div class="lineRepart">
+   <span class="tProp">Lieu</span><span>{{tournament.location}}</span>
+  </div>
+  <div class="lineRepart">
+    <span class="tProp">Joueurs</span><span>{{tournament.minPlayers}} - {{tournament.maxPlayers}}</span>
+  </div>
+  <div class="lineRepart">
+    <span class="tProp">Elo</span><span>{{tournament.minElo}} - {{tournament.maxElo}}</span>
+  </div>
+  <div class="lineRepart">
+    <span class="tProp">Dames</span><span>{{(tournament.womenOnly == true)? 'Oui' : 'Non'}}</span>
+  </div>
+  <div class="lineRepart">
+    <span class="tProp">Catégorie(s)</span>
+    <span class="tCatsPart">
+      <span *ngFor="let cat of getTCats()">{{cat}}<br></span>
+    </span>
+  </div>
+  <div class="lineRepart">
+    <span class="tProp">Inscription</span><span>{{tournament.registrationEndDate | date:'mediumDate'}}</span>
+  </div>
+  <div class="lineRepart">
+    <span class="tProp">Statut</span>
+    <span [ngClass]="{'tWaiting' : tournament.status == 0, 'tInProgress' : tournament.status == 1}">
+      {{getTStatus()}}
+    </span>
+  </div>
+
+<div class="actionsDiv">
+  <button *ngIf="currentUserRole == roles.Admin" pButton type="button" (click)="remove(tournament.id)" icon="pi pi-times" class="p-button-danger p-button-sm"
+          pTooltip="Supprimer" tooltipPosition="bottom"></button>
+  <button *ngIf="currentUserRole == roles.Admin" pButton type="button" icon="pi pi-pencil" class="p-button-warning p-button-sm"
+          pTooltip="Modifier" tooltipPosition="bottom" (click)="editT()"></button>
+  <button *ngIf="currentUserRole == roles.Other" pButton type="button" icon="pi pi-check" class="p-button-success p-button-sm"
+          pTooltip="Participer" tooltipPosition="bottom"></button>
+</div>

@@ -1,0 +1,51 @@
+:host{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2{
+  font-family: "Segoe UI";
+  color: white;
+  font-size: 1.5em;
+  width: fit-content;
+  margin-bottom: 30px;
+}
+
+.lineRepart{
+  width: 55%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+
+  .tProp{
+    color: #d1a24a;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+
+  .tCatsPart{
+    text-align: end;
+  }
+
+  .tWaiting{
+    color: #3bce06 !important;
+  }
+  .tInProgress{
+    color: #3B82F6 !important;
+  }
+  .tFinished{
+    color: red !important;
+  }
+}
+
+.actionsDiv{
+  margin-top: 20px;
+  button{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}

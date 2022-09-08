@@ -1,0 +1,14 @@
+<form id="connectForm" *ngIf="!isLogged" [formGroup]="fg" (ngSubmit)="submit()">
+  <h2>Authentificaton</h2>
+  <p>
+    <input pInputText type="text" formControlName="nickname" placeholder="pseudo" [pTooltip]="(fg.controls['nickname'].invalid && fg.controls['nickname'].touched)? 'Ce champ est requis' : ''">
+  </p>
+  <p>
+    <input pInputText type="password" formControlName="password" placeholder="mot de passe" [pTooltip]="(fg.controls['nickname'].invalid && fg.controls['nickname'].touched)? 'Ce champ est requis' : ''">
+  </p>
+  <p>
+    <br>
+    <p-button type="submit" label="Se connecter" [disabled]="fg.invalid"></p-button>
+  </p>
+</form>
+

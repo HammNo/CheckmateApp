@@ -1,0 +1,54 @@
+<div id="fPartNavbar">
+  <span icon="pi pi-align-justify" pButton
+    class="p-element p-button-lg p-button icon-only p-button-transparent p-button-extend"
+    (click)="toggleNav()">
+  </span>
+</div>
+
+<div id="mainNavbar" [@inOutAnimation]="extendNav ? 'open' : 'closed'">
+  <div class="partNavDiv">
+    <div *ngIf="!extendNav">
+      <button icon="pi pi-user" pButton
+        class="p-element p-button-lg p-button-rounded p-button-icon-only p-button-transparent"
+        routerLink="members/list">
+      </button>
+    </div>
+    <div class="widePartNavDiv" *ngIf="extendNav && okShowExtend">
+      <ul class="pi pi-user">
+        Membres
+        <li routerLink="members/list">
+          Liste
+        </li>
+        <li routerLink="members/add">
+          Ajouter
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="partNavDiv">
+    <div *ngIf="!extendNav">
+      <button icon="pi pi-play" pButton
+        class="p-element p-button-lg p-button-rounded p-button-icon-only p-button-transparent"
+        routerLink="tournaments/list">
+      </button>
+    </div>
+    <div class="widePartNavDiv" *ngIf="extendNav && okShowExtend">
+      <ul class="pi pi-play">
+        Tournois
+        <li routerLink="tournaments/list">
+          Liste
+        </li>
+        <li routerLink="tournaments/add">
+          Ajouter
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="partNavDiv">
+    <div *ngIf="!extendNav">
+      <button icon="pi pi-home" pButton
+        class="p-element p-button-lg p-button-rounded p-button-icon-only p-button-transparent"
+        routerLink="home">
+      </button>
+    </div>
+</div>

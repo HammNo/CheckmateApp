@@ -1,0 +1,15 @@
+<form [formGroup]="fg" (ngSubmit)="validSearch()">
+  <p>
+    <span>
+      <input pInputText type="number" formControlName="take" placeholder="nombre">
+    </span>
+    &nbsp;
+    <span>
+      <input pInputText type="text" formControlName="searchedName" placeholder="nom">
+    </span>
+    &nbsp;
+    <span>
+      <p-button type="submit" label="Chercher" [disabled]="fg.invalid"></p-button>
+    </span>
+  </p>
+</form>

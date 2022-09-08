@@ -1,0 +1,42 @@
+<app-search (searchEvent)="get($event)"></app-search>
+
+<p-table *ngIf="tournamentsList" [value]="tournamentsList" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+          <th rowspan="2" pSortableColumn="name">Nom <p-sortIcon field="name"></p-sortIcon></th>
+          <th rowspan="2">Lieu</th>
+          <th colspan="2">
+            Joueurs
+          </th>
+          <th colspan="2">
+            Elo
+          </th>
+          <th rowspan="2"pSortableColumn="registrationEndDate">Inscriptions<p-sortIcon field="registrationEndDate"></p-sortIcon></th>
+          <th rowspan="2">Actions</th>
+      </tr>
+      <tr>
+        <th pSortableColumn="minPlayers">Min <p-sortIcon field="minPlayers"></p-sortIcon></th>
+        <th pSortableColumn="maxPlayers">Max <p-sortIcon field="maxPlayers"></p-sortIcon></th>
+        <th pSortableColumn="minElo">Min <p-sortIcon field="minElo"></p-sortIcon></th>
+        <th pSortableColumn="maxElo">Max <p-sortIcon field="maxElo"></p-sortIcon></th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-tournament>
+      <tr>
+          <td>{{tournament.name}}</td>
+          <td>{{tournament.location}}</td>
+          <td>{{tournament.minPlayers}}</td>
+          <td>{{tournament.maxPlayers}}</td>
+          <td>{{tournament.minElo}}</td>
+          <td>{{tournament.maxElo}}</td>
+          <td>{{tournament.registrationEndDate | date:'mediumDate'}}</td>
+          <td>
+            <button pButton type="button" (click)="remove(tournament.id)" icon="pi pi-times" class="p-button-danger p-button-sm" pTooltip="Supprimer" tooltipPosition="top">
+            </button>
+            &nbsp;
+            <button pButton type="button" (click)="openDetails(tournament.id)" icon="pi pi-search" class="p-button-success p-button-sm" pTooltip="Détails" tooltipPosition="top">
+            </button>
+          </td>
+      </tr>
+  </ng-template>
+</p-table>

@@ -1,0 +1,67 @@
+<h3 class="subMainTitle">Ajouter un tournoi</h3>
+
+<form [formGroup]="fg" (ngSubmit)="add()">
+  <div class="formLine">
+    <span class="p-float-label">
+      <input pInputText type="text" id="name" formControlName="name" [escape]=false [pTooltip]="(fg.controls['name'].touched)?
+               fgTextControl('name') : ''" tooltipPosition="left">
+      <label for="name">Nom</label>
+    </span>
+    <span class="p-float-label">
+      <input pInputText type="text" id="lieu" formControlName="location">
+      <label for="lieu">Lieu</label>
+    </span>
+  </div>
+  <div class="formLine">
+    <span class="p-float-label">
+      <input pInputText type="number" id="minPlayers" formControlName="minPlayers" size="5" [escape]=false
+                [pTooltip]="(fg.controls['minPlayers'].touched)? fgTextControl('minPlayers') : ''" tooltipPosition="left">
+      <label for="minPlayers">J. min</label>
+    </span>
+    <span class="p-float-label">
+      <input pInputText type="number" id="maxPlayers" formControlName="maxPlayers" size="5" [escape]=false
+                [ngClass]="{'customInvalid' : fg.errors?.['maxPlayers']}"
+                [pTooltip]="(fg.controls['maxPlayers'].touched)? fgTextControl('maxPlayers') : ''" tooltipPosition="right">
+      <label for="maxPlayers">J. max</label>
+    </span>
+  </div>
+  <div class="formLine">
+    <span class="p-float-label">
+      <input pInputText type="number" id="minElo" formControlName="minElo" size="5" [escape]=false
+                [pTooltip]="(fg.controls['minElo'].touched)? fgTextControl('minElo') : ''" tooltipPosition="left">
+      <label for="minElo">E. min</label>
+    </span>
+    <span class="p-float-label">
+      <input pInputText type="number" id="maxElo" formControlName="maxElo" size="5" [escape]=false
+                [ngClass]="{'customInvalid' : fg.errors?.['maxElo']}"
+                [pTooltip]="(fg.controls['maxElo'].touched)? fgTextControl('maxElo') : ''" tooltipPosition="right">
+      <label for="maxElo">E. max</label>
+    </span>
+  </div>
+  <div class="formLine">
+    <span class="p-float-label">
+      <p-multiSelect [options]="categoryOptions" id="category" formControlName="category" display="chip"
+        optionValue="value" optionLabel="label" [escape]=false [pTooltip]="(fg.controls['category'].invalid && fg.controls['category'].touched)?
+                       fgTextControl('category') : ''" tooltipPosition="left">
+      </p-multiSelect>
+      <label for="category">Catégories</label>
+    </span>
+  </div>
+  <div class="formLine">
+    <div class="subFormCol">
+      <label>Réservé aux dames?</label>
+      <p-checkbox formControlName="womenOnly" [binary]="true"></p-checkbox>
+    </div>
+  </div>
+  <div class="formLine">
+    <span class="p-float-label">
+      <input pInputText type="number" id="timeToRegister" formControlName="timeToRegister" size="8" [escape]=false
+        [pTooltip]="(fg.controls['timeToRegister'].invalid && fg.controls['timeToRegister'].touched)?
+               fgTextControl('timeToRegister') : ''" tooltipPosition="left">
+      <label for="timeToRegister">Délai</label>
+    </span>
+  </div>
+  <div class="formLine">
+    <p-button type="submit" label="Ajouter" [disabled]="fg.invalid"></p-button>
+  </div>
+</form>

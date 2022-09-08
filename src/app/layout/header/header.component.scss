@@ -1,0 +1,57 @@
+
+:host{
+  height: 125px;
+  width: 100%;
+  background-color: #343a40;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#logo{
+  height: 100%;
+  width: fit-content;
+  padding: 10px;
+}
+
+h1{
+  color : white;
+  font-size: 3.5em;
+  padding-left: 30px;
+}
+
+#headRPart{
+  height: 100%;
+  width: 100%;
+
+  #connectionInfos{
+    width: 60%;
+    height: 25px;
+    margin: 10px;
+    font-size: 1.1em;
+    font-family: 'montserrat',Helvetica,Arial,sans-serif;
+    text-align:right;
+    color: white;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+
+    strong{
+      color: #8998b0;
+    }
+
+    strong:hover{
+      color: white;
+      cursor: pointer;
+    }
+
+    #welcome{
+      color: #3dd806;
+    }
+  }
+}
+
+
+
+

@@ -1,0 +1,24 @@
+
+<p-table *ngIf="membersList" [value]="membersList" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Pseudo</th>
+          <th>Mail</th>
+          <th>Elo</th>
+          <th>Role</th>
+          <th>Actions</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-member>
+      <tr>
+          <td>{{member.nickname}}</td>
+          <td>{{member.email}}</td>
+          <td>{{member.elo}}</td>
+          <td>{{(member.role == roles.Admin)? "Admin" : "Joueur"}}</td>
+          <td>
+            <button *ngIf="member.role != roles.Admin" pButton type="button" (click)="remove(member.id)" icon="pi pi-times" class="p-button-danger">
+            </button>
+          </td>
+      </tr>
+  </ng-template>
+</p-table>

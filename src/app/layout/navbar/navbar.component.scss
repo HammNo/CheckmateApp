@@ -1,0 +1,87 @@
+:host{
+  width: fit-content;
+  height: 100%;
+  background-color: #343a40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#fPartNavbar{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#mainNavbar{
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navbarLight{
+  width: 100px;
+}
+
+.navbarFull{
+  width: 200px;
+}
+
+.partNavDiv{
+  width: 100%;
+  text-align: center;
+}
+
+.widePartNavDiv{
+  width: 100%;
+  text-align: left;
+}
+
+ul{
+  padding-left: 15px;
+  width: 100%;
+  color: #d1a24a;
+  list-style: none;
+  font-size: 1.4em;
+}
+
+li{
+  background-color: #666e7a;
+  color: white;
+  font-size: 0.9em;
+  padding: 10px;
+  margin-left: 32px;
+  margin-right: 25px;
+  border-radius: 5px;
+}
+
+li:first-child{
+  border-bottom: 3px solid #343a40;
+  margin-top: 10px;
+}
+
+li:hover{
+  cursor: pointer;
+  background-color: #3b82f6 !important;
+}
+
+::ng-deep {
+  .p-button-transparent {
+    color: #d1a24a;
+    background-color: transparent;
+    border: 0px;
+  }
+  .p-button-extend {
+
+    color: #8998b0;
+  }
+
+  .p-button-extend:hover {
+    color: white;
+    background-color: transparent;
+  }
+}

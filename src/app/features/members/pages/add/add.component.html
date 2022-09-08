@@ -1,0 +1,48 @@
+<h3 class="subMainTitle">Ajouter un membre</h3>
+
+<form [formGroup]="fg" (ngSubmit)="add()">
+  <div class="formLine">
+    <span class="p-float-label">
+      <input pInputText type="text" id="nickname" formControlName="nickname" size="15" [escape]=false
+             [pTooltip]="(fg.controls['nickname'].touched)?
+               fgTextControl('nickname') : ''" tooltipPosition="left">
+      <label for="nickname">Pseudo</label>
+    </span>
+  </div>
+  <div class="formLine">
+    <span class="p-float-label">
+      <input pInputText type="email" id="email" formControlName="email" size="25" [escape]=false
+             [pTooltip]="(fg.controls['email'].touched)?
+              fgTextControl('email') : ''" tooltipPosition="left">
+      <label for="email">Email</label>
+    </span>
+  </div>
+  <div class="formLine">
+    <div class="subFormCol">
+      <label>Date de naissance</label>
+      <input pInputText type="date" id="birthdate" formControlName="birthdate" [escape]=false
+             [pTooltip]="(fg.controls['birthdate'].touched)?
+              fgTextControl('birthdate') : ''" tooltipPosition="left">
+    </div>
+  </div>
+  <div class="formLine">
+    <span class="p-float-label">
+      <p-selectButton [options]="genderOptions" formControlName="gender" [escape]=false
+                      [pTooltip]="(fg.controls['gender'].touched)?
+                        fgTextControl('gender') : ''" tooltipPosition="left"></p-selectButton>
+    </span>
+  </div>
+  <div class="formLine">
+    <span class="p-float-label">
+      <input pInputText type="number" id="elo" formControlName="elo" size="5" [escape]=false
+             [pTooltip]="(fg.controls['elo'].touched)?
+              fgTextControl('elo') : ''" tooltipPosition="left">
+      <label for="elo">Elo</label>
+    </span>
+  </div>
+  <div class="formLine">
+    <span class="p-float-label">
+      <p-button type="submit" label="Ajouter" [disabled]="fg.invalid"></p-button>
+    </span>
+  </div>
+</form>

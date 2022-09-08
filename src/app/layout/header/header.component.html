@@ -1,0 +1,30 @@
+<div id="logo">
+  <img src="../assets/images/checkmateLogo.png" width="100">
+</div>
+
+<p-overlayPanel #op>
+  <ng-template pTemplate>
+    <app-connection></app-connection>
+  </ng-template>
+</p-overlayPanel>
+
+<h1>Checkmate</h1>
+<div id="headRPart">
+  <div id="connectionInfos">
+      <span *ngIf="!isLogged">
+        <strong (click)="openConnection($event, op)">
+          <span class="pi pi-unlock"></span>
+          Se connecter
+        </strong>
+      </span>
+      <span *ngIf="isLogged">
+        <span id="welcome">Bienvenue {{userLogged?.nickname}} !</span>
+        &nbsp;
+        (mon compte)
+        &nbsp;
+        <strong (click)="closeConnection()">
+          Se déconnecter
+        </strong>
+      </span>
+  </div>
+</div>
